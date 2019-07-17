@@ -1,11 +1,7 @@
 package com.hello;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import javax.sql.DataSource;
 
 
 @Service
@@ -14,20 +10,10 @@ public class HelloService {
     private final RestTemplate restTemplate = new RestTemplate();
 
 
-    public DataSource getDataSource() {
-        return dataSource;
-    }
+//    @Autowired
+//    DataSource dataSource;
+//    JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
-    @Autowired
-    private DataSource dataSource;
-
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
-
-    //    @Autowired
-//    private DataSource dataSource;
-//
 
 
 
@@ -42,13 +28,12 @@ public class HelloService {
         return this.restTemplate.getForObject("https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0?f=json", String.class);
     }
 
-    public int QueryDatabase() {
-         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        String sql = "insert into ftable values(1,'any')";
-        jdbcTemplate.execute(sql);
-        return 1;
-
-    }
+//    public int QueryDatabase() {
+//        String sql = "select * from information_schema.tables";
+//        jdbcTemplate.execute(sql);
+//        return 1;
+//
+//    }
 
 
 
