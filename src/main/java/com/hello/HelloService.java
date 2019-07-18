@@ -1,5 +1,7 @@
 package com.hello;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,7 +16,8 @@ public class HelloService {
 //    DataSource dataSource;
 //    JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
-
+    @Autowired
+    JdbcTemplate jdbcTemplate;
 
 
 //    public HelloService(JdbcTemplate jdbcTemplate) {
@@ -28,12 +31,13 @@ public class HelloService {
         return this.restTemplate.getForObject("https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0?f=json", String.class);
     }
 
-//    public int QueryDatabase() {
-//        String sql = "select * from information_schema.tables";
-//        jdbcTemplate.execute(sql);
-//        return 1;
-//
-//    }
+    public int QueryDatabase() {
+                String sql = "insert into ftable values (1,'testin')";
+
+        jdbcTemplate.execute(sql);
+        return 1;
+
+    }
 
 
 
