@@ -20,12 +20,12 @@ public class HelloService {
     JdbcTemplate jdbcTemplate;
 
 
-//    public HelloService(JdbcTemplate jdbcTemplate) {
+public HelloService(JdbcTemplate jdbcTemplate) {
 ////        RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
 ////        restTemplate = restTemplateBuilder.build();
 ////        this.restTemplate = new RestTemplate();
 //        this.jdbcTemplate = jdbcTemplate;
-//    }
+    }
 
     public String argGis() {
         return this.restTemplate.getForObject("https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0?f=json", String.class);
